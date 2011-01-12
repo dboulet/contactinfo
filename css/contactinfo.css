@@ -1,0 +1,10 @@
+/* $Id$ */
+
+/**
+ * @file
+ * Contact Information CSS rules.
+ */
+
+.vcard .geo {
+  display: none;
+}

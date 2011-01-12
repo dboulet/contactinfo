@@ -1,0 +1,30 @@
+/* $Id$ */
+
+/**
+ * @file
+ * CSS styles for Contact Information admin form.
+ */
+
+#edit-contactinfo-fn-n .form-item {
+  float: left;
+  margin-right: 2em;
+  width: 16em;
+}
+
+#edit-contactinfo-fn-n .form-item .form-text {
+  width: 100%;
+}
+
+#edit-contactinfo-adr .form-item-contactinfo-adr-region,
+#edit-contactinfo-adr .form-item-contactinfo-adr-postal-code,
+#edit-contactinfo-adr .form-item-contactinfo-adr-country-name {
+  float: left;
+  margin-right: 2em;
+  width: 9em;
+}
+
+.form-item-contactinfo-adr-region .form-text,
+.form-item-contactinfo-adr-postal-code .form-text,
+.form-item-contactinfo-adr-country-name .form-text {
+  width: 100%;
+}

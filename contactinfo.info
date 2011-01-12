@@ -1,0 +1,7 @@
+; $Id$
+name = Contact Information
+description = Collects contact information and displays it in an hCard block.
+core = 7.x
+files[] = contactinfo.install
+files[] = contactinfo.module
+files[] = contactinfo.tpl.php
