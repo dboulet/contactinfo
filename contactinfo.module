@@ -122,11 +122,17 @@ function template_preprocess_contactinfo(&$variables) {
   }
 
   // Generate the output for the 'email' variable.
-  // TODO: Email obfuscator integration.
   if ($contactinfo['email']) {
     $email = check_plain($contactinfo['email']);
-    $variables['email'] = $email;
-    $variables['email_url'] = 'mailto:' . $email;
+    // Use obfuscation provided by invisimail module.
+    if (function_exists('invisimail_encode_html')) {
+      $variables['email'] = invisimail_encode_html($email);
+      $variables['email_url'] = INVISIMAIL_MAILTO_ASCII . $variables['email'];
+    }
+    else {
+      $variables['email'] = $email;
+      $variables['email_url'] = 'mailto:' . $email;
+    }
   }
 
   // Generate ID
