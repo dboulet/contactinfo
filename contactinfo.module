@@ -37,6 +37,7 @@ function contactinfo_permission() {
  * Implements hook_menu().
  */
 function contactinfo_menu() {
+  // TODO: create contextual links.
   $items['admin/config/system/contactinfo'] = array(
     'title' => 'Contact information',
     'description' => 'Configure contact information that is publicly displayed on this site.',
@@ -117,6 +118,7 @@ function template_preprocess_contactinfo(&$variables) {
     $variables['faxes'] = array_map('trim', $faxes);
   }
   // Generate the output for the 'email' variable.
+  // TODO: Email obfuscator integration.
   if ($contactinfo['email']) {
     $email = check_plain($contactinfo['email']);
     $variables['email'] = $email;
