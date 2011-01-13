@@ -320,7 +320,7 @@ function contactinfo_validate_email($element, &$form_state) {
  * Implements hook_block_info().
  */
 function contactinfo_block_info() {
-  $blocks['contactinfo'] = array(
+  $blocks['hcard'] = array(
     'info' => 'Contact information',
     'weight' => 10,
     'enabled' => 1,
@@ -335,7 +335,7 @@ function contactinfo_block_info() {
 function contactinfo_block_view($delta) {
   $block = array();
   switch ($delta) {
-    case 'contactinfo':
+    case 'hcard':
       $contactinfo = variable_get('contactinfo', array());
       if ($contactinfo) {
         $block = array(
