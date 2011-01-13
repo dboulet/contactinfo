@@ -12,12 +12,11 @@
 function contactinfo_help($path, $arg) {
   switch ($path) {
     case 'admin/help#contactinfo':
-      $output = '<p>' . t("The hcard is a small bundle of code that you want to put on your web site so that Google Local (and other local search engines) can more easily index the site's location information.") . '</p>';
-      $output .= '<p>' . t('Configure your hcard block at the hcard settings page.') . '</p>';
+      $output = '<p>' . t('Contact information that you provide will be displayed on the site in the <a href="http://microformats.org/wiki/hcard">hCard microformat</a>. An hCard is a small bundle of code that you want to put on your web site so that Google Maps (and other mapping services) can more easily index the site&rsquo;s location information.') . '</p>';
       return $output;
 
     case 'admin/config/system/contactinfo':
-      return '<p>' . t('Enter your site\'s information into the appropriate fields.') . '</p>';
+      return '<p>' . t('Enter your site\'s contact information into the appropriate fields. All fields are optional.') . '</p>';
   }
 }
 
