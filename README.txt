@@ -8,18 +8,16 @@ Contact information that you provide will be displayed on the site in the hCard 
 
 INSTALLATION
 ============
--Once downloaded, enable the module at admin/modules
--Enter your contact information at admin/config/system/contactinfo
--Place the 'Contact information' block into one of your theme's regions at admin/structure/block
+- Once downloaded, enable the module at admin/modules
+- Enter your contact information at admin/config/system/contactinfo
+- Place the 'Contact information' block into one of your theme's regions at admin/structure/block
 
 
 RECOMMENDED MODULES
 ===================
 
-Invisimail
-----------
-(http://drupal.org/project/invisimail)
-Email addresses within the hCard will be obfuscated if the Invisimail module is installed.
+- Invisimail (http://drupal.org/project/invisimail)
+  Email addresses within the hCard will be obfuscated if the Invisimail module is installed.
 
 
 THANKS
