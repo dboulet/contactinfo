@@ -104,6 +104,10 @@ function template_preprocess_contactinfo(&$variables) {
   $variables['latitude'] = check_plain($contactinfo['location']['latitude']);
   $variables['tagline'] = check_plain($contactinfo['tagline']);
 
+  // Generate formatted longitude and latitude.
+  $variables['longitude_formatted'] = contactinfo_coord_convert($variables['longitude'], 'longitude');
+  $variables['latitude_formatted'] = contactinfo_coord_convert($variables['latitude'], 'latitude');
+
   // Generates the output for the 'phones' variable.
   if ($contactinfo['phone']['voice']) {
     $phone_text = check_plain($contactinfo['phone']['voice']);
@@ -117,6 +121,7 @@ function template_preprocess_contactinfo(&$variables) {
     $faxes = explode(',', $fax_text);
     $variables['faxes'] = array_map('trim', $faxes);
   }
+
   // Generate the output for the 'email' variable.
   // TODO: Email obfuscator integration.
   if ($contactinfo['email']) {

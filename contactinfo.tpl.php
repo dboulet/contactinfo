@@ -10,6 +10,8 @@
  *
  * - $contactinfo: variable_get('contactinfo', array()).
  *
+ * - $type: Either 'personal' or 'business'.
+ *
  * - $given_name: The given-name value.
  * - $family_name: The family-name value.
  * - $org: The name of the business or organization.
@@ -24,6 +26,8 @@
  *
  * - $longitude: The longitude value in decimal degrees format.
  * - $latitude: The latitude value in decimal degrees format.
+ * - $longitude_formatted: The longitude value in decimal degrees and decimal minutes format.
+ * - $latitude_formatted: The latitude value in decimal degrees and decimal minutes format.
  *
  * - $phones: An array of phone numbers.
  * - $faxes: An array of fax numbers.
@@ -44,10 +48,14 @@
       <span class="family-name"><?php print $family_name; ?></span>
     <?php endif; ?>
 
-    <div class="org"><?php print $org; ?></div>
+    <?php if ($org): ?>
+      <div class="org"><?php print $org; ?></div>
+    <?php endif; ?>
   </div>
 <?php else: ?>
-  <div class="fn org"><?php print $org; ?></div>
+  <?php if ($org): ?>
+    <div class="fn org"><?php print $org; ?></div>
+  <?php endif; ?>
 <?php endif; ?>
 
 <?php if ($tagline): ?>
@@ -62,23 +70,27 @@
     <span class="country-name"><?php print $country; ?></span>
   </div>
 
+<?php if ($longitude || $latitude): ?>
   <div class="geo">
-    <abbr class="longitude" title="<?php print $longitude; ?>"><?php print contactinfo_coord_convert($longitude, 'longitude')?></abbr>
-    <abbr class="latitude" title="<?php print $latitude; ?>"><?php print contactinfo_coord_convert($latitude, 'latitude')?></abbr>
+    <abbr class="longitude" title="<?php print $longitude; ?>"><?php print $longitude_formatted; ?></abbr>
+    <abbr class="latitude" title="<?php print $latitude; ?>"><?php print $latitude_formatted; ?></abbr>
   </div>
+<?php endif; ?>
 
+<?php if ($phones || $faxes): ?>
   <div class="phone">
     <?php foreach ($phones as $phone): ?>
       <?php if ($phone): ?>
-        <span class="tel"><abbr class="type" title="voice"><?php print t('Telephone'); ?>:</abbr> <?php print $phone; ?></span><br />
+        <div class="tel"><abbr class="type" title="voice"><?php print t('Telephone'); ?>:</abbr> <?php print $phone; ?></div>
       <?php endif; ?>
     <?php endforeach; ?>
     <?php foreach ($faxes as $fax): ?>
       <?php if ($fax): ?>
-        <span class="tel"><abbr class="type" title="fax"><?php print t('FAX'); ?>:</abbr> <?php print $fax; ?></span><br />
+        <div class="tel"><abbr class="type" title="fax"><?php print t('FAX'); ?>:</abbr> <?php print $fax; ?></div>
       <?php endif; ?>
     <?php endforeach; ?>
   </div>
+<?php endif; ?>
 
   <?php if ($email): ?>
     <a href="<?php print $email_url; ?>" class="email"><?php print $email; ?></a>

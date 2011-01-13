@@ -8,3 +8,7 @@
 .vcard .geo {
   display: none;
 }
+
+.vcard .phone abbr {
+  border-bottom: none;
+}
