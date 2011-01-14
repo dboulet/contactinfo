@@ -28,3 +28,18 @@
 .form-item-contactinfo-adr-country-name .form-text {
   width: 100%;
 }
+
+.contactinfo-org-wrapper .form-item {
+  float: left;
+  margin-right: 1em;
+}
+
+#edit-contactinfo-org {
+  width: 25em;
+}
+
+#contactinfo-admin-settings .form-item-contactinfo-use-site-name {
+  margin-right: 0;
+  margin-top: 0;
+  padding-top: 2.25em;
+}
