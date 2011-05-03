@@ -5,10 +5,10 @@
  * Contact Information CSS rules.
  */
 
-.vcard .geo {
+#contactinfo .geo {
   display: none;
 }
 
-.vcard .phone abbr {
+#contactinfo .phone abbr {
   border-bottom: none;
 }
