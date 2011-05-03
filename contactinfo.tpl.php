@@ -62,13 +62,25 @@
   <div class="tagline"><?php print $tagline; ?></div>
 <?php endif; ?>
 
+<?php if ($street_address || $locality || $region || $postal_code || $country): ?>
   <div class="adr">
-    <span class="street-address"><?php print $street_address; ?></span>
-    <span class="locality"><?php print $locality; ?></span>,
-    <span class="region"><?php print $region; ?></span>
-    <span class="postal-code"><?php print $postal_code; ?></span>
-    <span class="country-name"><?php print $country; ?></span>
+    <?php if ($street_address): ?>
+      <span class="street-address"><?php print $street_address; ?></span>
+    <?php endif; ?>
+    <?php if ($locality): ?>
+      <span class="locality"><?php print $locality; ?></span><?php print $region ? ',' : ''; ?>
+    <?php endif; ?>
+    <?php if ($region): ?>
+      <span class="region"><?php print $region; ?></span>
+    <?php endif; ?>
+    <?php if ($postal_code): ?>
+      <span class="postal-code"><?php print $postal_code; ?></span>
+    <?php endif; ?>
+    <?php if ($country): ?>
+      <span class="country-name"><?php print $country; ?></span>
+    <?php endif; ?>
   </div>
+<?php endif; ?>
 
 <?php if ($longitude || $latitude): ?>
   <div class="geo">
