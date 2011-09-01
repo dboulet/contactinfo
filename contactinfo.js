@@ -1,4 +1,3 @@
-// $Id$
 /**
  * @file
  * Behaviors for the Contact information settings form.

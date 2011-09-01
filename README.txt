@@ -1,4 +1,3 @@
-$Id$
 README.txt
 
 This module collects site-wide contact information and displays it in a block that you can place anywhere on your site.
