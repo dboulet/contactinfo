@@ -184,7 +184,7 @@ function contactinfo_admin_settings($form, &$form_state) {
   $form['#attached'] = array(
     'css' => array(
       array(
-        'data' => $path . '/css/contactinfo-admin.css',
+        'data' => $path . '/css/contactinfo.admin.css',
         'type' => 'file',
       ),
     ),
