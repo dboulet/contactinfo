@@ -25,8 +25,10 @@
  *
  * - $longitude: The longitude value in decimal degrees format.
  * - $latitude: The latitude value in decimal degrees format.
- * - $longitude_formatted: The longitude value in decimal degrees and decimal minutes format.
- * - $latitude_formatted: The latitude value in decimal degrees and decimal minutes format.
+ * - $longitude_formatted: The longitude value in decimal degrees and decimal
+ *   minutes format.
+ * - $latitude_formatted: The latitude value in decimal degrees and decimal
+ *   minutes format.
  *
  * - $phones: An array of phone numbers.
  * - $faxes: An array of fax numbers.
