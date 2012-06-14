@@ -413,12 +413,13 @@ function contactinfo_contextual_links_view_alter(&$element, $items) {
 }
 
 /**
- * Convert a decimal-degree longitude or latitude point into degrees and decimal minutes.
+ * Convert a decimal-degree longitude or latitude point into degrees and
+ * decimal minutes.
  *
  * @param float $decimal
  *   Decimal value for a longitude or latitude point.
  * @param string $direction
- *  'longitude' or 'latitude' are the only acceptable inputs.
+ *   Strings 'longitude' or 'latitude' are the only acceptable inputs.
  *
  * @return string
  *  String containing a single character for N, S, E, or W, the degrees as
