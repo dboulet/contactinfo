@@ -413,8 +413,11 @@ function contactinfo_contextual_links_view_alter(&$element, $items) {
 }
 
 /**
+<<<<<<< HEAD
  * Helper function to convert longitude or latitude points.
  *
+=======
+>>>>>>> 9c645559865bf56dea87eef51fb23ec13ee57f1a
  * Convert a decimal-degree longitude or latitude point into degrees and
  * decimal minutes.
  *
