@@ -35,7 +35,6 @@
  *
  * - $email_url: The href for the mailto link.
  * - $email: The email address value.
- *
  */
 ?>
 <div id="<?php print $id; ?>" class="vcard">
