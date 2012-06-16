@@ -217,20 +217,20 @@ function contactinfo_admin_settings($form, &$form_state) {
   $form['contactinfo']['fn_n']['given-name'] = array(
     '#type' => 'textfield',
     '#title' => t('First Name'),
-    '#description' => t('Your first name (!class).', array('!class' => '<code>given-name</code>')),
+    '#description' => t('Your first name.'),
     '#default_value' => $default_values['fn_n']['given-name'],
   );
   $form['contactinfo']['fn_n']['family-name'] = array(
     '#type' => 'textfield',
     '#title' => t('Last Name'),
-    '#description' => t('Your last name (!class).', array('!class' => '<code>family-name</code>')),
+    '#description' => t('Your last name.'),
     '#default_value' => $default_values['fn_n']['family-name'],
   );
   $form['contactinfo']['org'] = array(
     '#type' => 'textfield',
     '#title' => t('Organization/Business Name'),
     '#default_value' => $default_values['org'],
-    '#description' => t('The name of your organization or business (!class).', array('!class' => '<code>org</code>')),
+    '#description' => t('The name of your organization or business.'),
     '#prefix' => '<div class="contactinfo-org-wrapper clearfix">',
   );
   $form['contactinfo']['use_site_name'] = array(
@@ -254,33 +254,28 @@ function contactinfo_admin_settings($form, &$form_state) {
     '#type' => 'textfield',
     '#title' => t('Street Address'),
     '#default_value' => $default_values['adr']['street-address'],
-    '#description' => '<code>(street-address)</code>',
   );
   $form['contactinfo']['adr']['locality'] = array(
     '#type' => 'textfield',
     '#title' => t('City'),
     '#default_value' => $default_values['adr']['locality'],
-    '#description' => '<code>(locality)</code>',
   );
   $form['contactinfo']['adr']['region'] = array(
     '#type' => 'textfield',
     '#title' => t('State/Province'),
     '#default_value' => $default_values['adr']['region'],
-    '#description' => '<code>(region)</code>',
     '#size' => 10,
   );
   $form['contactinfo']['adr']['postal-code'] = array(
     '#type' => 'textfield',
     '#title' => t('Postal Code'),
     '#default_value' => $default_values['adr']['postal-code'],
-    '#description' => '<code>(postal-code)</code>',
     '#size' => 10,
   );
   $form['contactinfo']['adr']['country-name'] = array(
     '#type' => 'textfield',
     '#title' => t('Country'),
     '#default_value' => $default_values['adr']['country-name'],
-    '#description' => '<code>(country-name)</code>',
   );
   $form['contactinfo']['location'] = array(
     '#type' => 'fieldset',
