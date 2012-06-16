@@ -1,10 +1,10 @@
 /**
  * @file
- * Behaviors for the Contact information settings form.
+ * JS for the Contact Information module settings form.
  */
-(function ($) {
+(function ($, Drupal) {
   Drupal.behaviors.contactinfo = {
-    attach: function() {
+    attach: function () {
       var contactInfoProperties = {
         org: {
           $checkbox: $('#edit-contactinfo-use-site-name'),
@@ -37,4 +37,4 @@
       });
     }
   };
-})(jQuery);
+})(jQuery, Drupal);
