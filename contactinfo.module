@@ -213,6 +213,14 @@ function contactinfo_admin_settings($form, &$form_state) {
     '#type' => 'fieldset',
     '#title' => t('Full Name'),
     '#description' => t('If this site is your personal site, enter your full name here.'),
+    '#states' => array(
+      // Hide this fieldset if type is set to “business”.
+      'invisible' => array(
+        ':input[name="contactinfo[type]"]' => array('value' => 'business'),
+      ),
+    ),
+    '#prefix' => '<div id="edit-hcard-fn-n-wrapper">',
+    '#suffix' => '</div>',
   );
   $form['contactinfo']['fn_n']['given-name'] = array(
     '#type' => 'textfield',
@@ -318,17 +326,6 @@ function contactinfo_admin_settings($form, &$form_state) {
     '#description' => t('Enter this site’s contact email address. This address will be displayed publicly, do not enter a private address.'),
     '#element_validate' => array('contactinfo_validate_email'),
   );
-
-  // Use ctools for form item dependencies.
-  if (function_exists('ctools_include')) {
-    ctools_include('dependent');
-    $form['contactinfo']['fn_n']['#process'] = array('ctools_dependent_process');
-    // Force #process to run.
-    $form['contactinfo']['fn_n']['#input'] = TRUE;
-    $form['contactinfo']['fn_n']['#dependency'] = array('radio:contactinfo[type]' => array('personal'));
-    $form['contactinfo']['fn_n']['#prefix'] = '<div id="edit-hcard-fn-n-wrapper">';
-    $form['contactinfo']['fn_n']['#suffix'] = '</div>';
-  }
 
   return system_settings_form($form);
 }
