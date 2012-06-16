@@ -27,7 +27,8 @@
   width: 100%;
 }
 
-.contactinfo-org-wrapper .form-item {
+.contactinfo-org-wrapper .form-item,
+.contactinfo-tagline-wrapper .form-item {
   float: left;
   margin-right: 1em;
 }
@@ -36,7 +37,8 @@
   width: 25em;
 }
 
-#contactinfo-admin-settings .form-item-contactinfo-use-site-name {
+#contactinfo-admin-settings .form-item-contactinfo-use-site-name,
+#contactinfo-admin-settings .form-item-contactinfo-use-site-slogan {
   margin-right: 0;
   margin-top: 0;
   padding-top: 2.25em;

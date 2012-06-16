@@ -102,7 +102,7 @@ function template_preprocess_contactinfo(&$variables) {
   $variables['country'] = check_plain($contactinfo['adr']['country-name']);
   $variables['longitude'] = check_plain($contactinfo['location']['longitude']);
   $variables['latitude'] = check_plain($contactinfo['location']['latitude']);
-  $variables['tagline'] = check_plain($contactinfo['tagline']);
+  $variables['tagline'] = $contactinfo['use_site_slogan'] ? check_plain(variable_get('site_slogan', '')) : check_plain($contactinfo['tagline']);
 
   // Generate formatted longitude and latitude.
   $variables['longitude_formatted'] = contactinfo_coord_convert($variables['longitude'], 'longitude');
@@ -193,7 +193,10 @@ function contactinfo_admin_settings($form, &$form_state) {
     'js' => array(
       $path . '/contactinfo.js',
       array(
-        'data' => array('siteName' => check_plain(variable_get('site_name', ''))),
+        'data' => array(
+          'siteName' => check_plain(variable_get('site_name', '')),
+          'siteSlogan' => check_plain(variable_get('site_slogan', '')),
+        ),
         'type' => 'setting',
       ),
     ),
@@ -252,6 +255,13 @@ function contactinfo_admin_settings($form, &$form_state) {
     '#title' => t('Tagline'),
     '#default_value' => $default_values['tagline'],
     '#description' => t('A short tagline.'),
+    '#prefix' => '<div class="contactinfo-tagline-wrapper clearfix">',
+  );
+  $form['contactinfo']['use_site_slogan'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Use site slogan'),
+    '#default_value' => $default_values['use_site_slogan'],
+    '#suffix' => '</div>',
   );
   $form['contactinfo']['adr'] = array(
     '#type' => 'fieldset',
