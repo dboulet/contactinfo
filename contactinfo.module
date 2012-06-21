@@ -161,6 +161,7 @@ function contactinfo_admin_settings($form, &$form_state) {
     'org' => '',
     'use_site_name' => 0,
     'tagline' =>  '',
+    'use_site_slogan' => 0,
     'adr' => array(
       'street-address' => '',
       'locality' => '',
@@ -178,7 +179,8 @@ function contactinfo_admin_settings($form, &$form_state) {
     ),
     'email' => '',
   );
-  $default_values = variable_get('contactinfo', $default);
+  // Merge default values and saved data to ensure all array keys are present.
+  $default_values = array_merge($default, variable_get('contactinfo', $default));
 
   $form = array();
   $path = drupal_get_path('module', 'contactinfo');
