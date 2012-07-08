@@ -83,8 +83,7 @@ function contactinfo_theme($existing, $type, $theme, $path) {
  *
  * @param array $variables
  *   as defined by hook_theme().
- *   $variable['contactinfo'] is equivalent to
- *   variable_get('contactinfo', array())
+ *   $variable['contactinfo'] is equivalent to contactinfo_get_contactinfo().
  */
 function template_preprocess_contactinfo(&$variables) {
   drupal_add_css(drupal_get_path('module', 'contactinfo') . '/css/contactinfo.css');
@@ -152,35 +151,7 @@ function template_preprocess_contactinfo(&$variables) {
  * Contact Info settings form.
  */
 function contactinfo_admin_settings($form, &$form_state) {
-  $default = array(
-    'type' => 'personal',
-    'fn_n' => array(
-      'given-name' => '',
-      'family-name' => '',
-    ),
-    'org' => '',
-    'use_site_name' => 0,
-    'tagline' =>  '',
-    'use_site_slogan' => 0,
-    'adr' => array(
-      'street-address' => '',
-      'locality' => '',
-      'region' => '',
-      'postal-code' => '',
-      'country-name' => '',
-    ),
-    'location' => array(
-      'longitude' => '',
-      'latitude' => '',
-    ),
-    'phone' => array(
-      'voice' => '',
-      'fax' => '',
-    ),
-    'email' => '',
-  );
-  // Merge default values and saved data to ensure all array keys are present.
-  $default_values = array_merge($default, variable_get('contactinfo', $default));
+  $default_values = contactinfo_get_contactinfo();
 
   $form = array();
   $path = drupal_get_path('module', 'contactinfo');
@@ -378,7 +349,7 @@ function contactinfo_block_view($delta) {
   $block = array();
   switch ($delta) {
     case 'hcard':
-      $contactinfo = variable_get('contactinfo', array());
+      $contactinfo = contactinfo_get_contactinfo();
       if ($contactinfo) {
         $block = array(
           'subject' => '',
@@ -460,4 +431,23 @@ function contactinfo_coord_convert($decimal, $direction) {
   $coord_minutes = abs(fmod($decimal, 1) * 60);
 
   return $coord_direction . ' ' . $coord_degrees . '° ' . $coord_minutes . '"';
+}
+
+/**
+ * Helper function to return saved contact information.
+ *
+ * @return array
+ *   All contact information saved from the settings form.
+ */
+function contactinfo_get_contactinfo() {
+  // Get variable defaults.
+  module_load_include('inc', 'contactinfo', 'includes/contactinfo.variable');
+  $variables = contactinfo_variable_info(array());
+  $default = $variables['contactinfo']['default'];
+
+  // Get saved contact information.
+  $contactinfo = variable_get('contactinfo', $default);
+
+  // Merge default values and saved data to ensure all array keys are present.
+  return array_merge($default, $contactinfo);
 }
