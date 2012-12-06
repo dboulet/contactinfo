@@ -271,7 +271,7 @@ function contactinfo_admin_settings($form, &$form_state) {
   $form['contactinfo']['location'] = array(
     '#type' => 'fieldset',
     '#title' => t('Geographical Location'),
-    '#description' => t('Enter your geographical coordonates to help people locate you.'),
+    '#description' => t('Enter your geographical coordinates to help people locate you.'),
   );
   $form['contactinfo']['location']['longitude'] = array(
     '#type' => 'textfield',
