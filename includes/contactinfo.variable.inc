@@ -24,6 +24,7 @@ function contactinfo_variable_info($options) {
       'use_site_slogan' => 0,
       'adr' => array(
         'street-address' => '',
+        'extended-address' => '',
         'locality' => '',
         'region' => '',
         'postal-code' => '',

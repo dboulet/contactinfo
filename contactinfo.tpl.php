@@ -18,6 +18,7 @@
  * - $tagline: The tagline.
  *
  * - $street_address: The street-address value.
+ * - $extended_address: The extended-address value.
  * - $locality: The locality value. In USA, this is the city.
  * - $region: The region value. In the USA, this is the state.
  * - $postal_code: The postal-code value.
@@ -65,7 +66,10 @@
 <?php if ($street_address || $locality || $region || $postal_code || $country): ?>
   <div class="adr">
     <?php if ($street_address): ?>
-      <span class="street-address"><?php print $street_address; ?></span>
+      <div class="street-address"><?php print $street_address; ?></div>
+    <?php endif; ?>
+    <?php if ($extended_address): ?>
+      <div class="extended-address"><?php print $extended_address; ?></div>
     <?php endif; ?>
     <?php if ($locality): ?>
       <span class="locality"><?php print $locality; ?></span><?php print $region ? ',' : ''; ?>

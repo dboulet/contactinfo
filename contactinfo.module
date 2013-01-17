@@ -63,6 +63,7 @@ function contactinfo_theme($existing, $type, $theme, $path) {
         'org' => NULL,
         'tagline' => NULL,
         'street_address' => NULL,
+        'extended_address' => NULL,
         'locality' => NULL,
         'region' => NULL,
         'postal_code' => NULL,
@@ -95,6 +96,7 @@ function template_preprocess_contactinfo(&$variables) {
   $variables['family_name'] = check_plain($contactinfo['fn_n']['family-name']);
   $variables['org'] = $contactinfo['use_site_name'] ? check_plain(variable_get('site_name', '')) : check_plain($contactinfo['org']);
   $variables['street_address'] = check_plain($contactinfo['adr']['street-address']);
+  $variables['extended_address'] = check_plain($contactinfo['adr']['extended-address']);
   $variables['locality'] = check_plain($contactinfo['adr']['locality']);
   $variables['region'] = check_plain($contactinfo['adr']['region']);
   $variables['postal_code'] = check_plain($contactinfo['adr']['postal-code']);
@@ -245,6 +247,11 @@ function contactinfo_admin_settings($form, &$form_state) {
     '#type' => 'textfield',
     '#title' => t('Street Address'),
     '#default_value' => $default_values['adr']['street-address'],
+  );
+  $form['contactinfo']['adr']['extended-address'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Extended Address'),
+    '#default_value' => $default_values['adr']['extended-address'],
   );
   $form['contactinfo']['adr']['locality'] = array(
     '#type' => 'textfield',
