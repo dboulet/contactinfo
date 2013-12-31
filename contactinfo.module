@@ -176,6 +176,7 @@ function contactinfo_admin_settings($form, &$form_state) {
     ),
   );
 
+  $form['contactinfo']['#tree'] = TRUE;
   $form['contactinfo']['type'] = array(
     '#type' => 'radios',
     '#title' => t('Contact information type'),
@@ -451,13 +452,48 @@ function contactinfo_coord_convert($decimal, $direction) {
  */
 function contactinfo_get_contactinfo() {
   // Get variable defaults.
-  module_load_include('inc', 'contactinfo', 'contactinfo.variable');
-  $variables = contactinfo_variable_info(array());
-  $default = $variables['contactinfo']['default'];
+  $default = contactinfo_defaults();
 
   // Get saved contact information.
   $contactinfo = variable_get('contactinfo', $default);
 
   // Merge default values and saved data to ensure all array keys are present.
   return array_merge($default, $contactinfo);
+}
+
+/**
+ * Returns the default values for the site contact information.
+ *
+ * @return array
+ *   Default values for all contact info keys.
+ */
+function contactinfo_defaults() {
+  return array(
+    'type' => 'personal',
+    'fn_n' => array(
+      'given-name' => '',
+      'family-name' => '',
+    ),
+    'org' => '',
+    'use_site_name' => 0,
+    'tagline' =>  '',
+    'use_site_slogan' => 0,
+    'adr' => array(
+      'street-address' => '',
+      'extended-address' => '',
+      'locality' => '',
+      'region' => '',
+      'postal-code' => '',
+      'country-name' => '',
+    ),
+    'location' => array(
+      'longitude' => '',
+      'latitude' => '',
+    ),
+    'phone' => array(
+      'voice' => '',
+      'fax' => '',
+    ),
+    'email' => '',
+  );
 }

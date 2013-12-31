@@ -5,41 +5,30 @@
  */
 
 /**
-* Implements hook_variable_info().
-*/
+ * Implements hook_variable_info().
+ */
 function contactinfo_variable_info($options) {
   $variable['contactinfo'] = array(
     'title' => t('Contact information'),
+    'description' => t('Contact information for this website.'),
     'type' => 'array',
-    'default' => array(
-      'type' => 'personal',
-      'fn_n' => array(
-        'given-name' => '',
-        'family-name' => '',
-      ),
-      'org' => '',
-      'use_site_name' => 0,
-      'tagline' =>  '',
-      'use_site_slogan' => 0,
-      'adr' => array(
-        'street-address' => '',
-        'extended-address' => '',
-        'locality' => '',
-        'region' => '',
-        'postal-code' => '',
-        'country-name' => '',
-      ),
-      'location' => array(
-        'longitude' => '',
-        'latitude' => '',
-      ),
-      'phone' => array(
-        'voice' => '',
-        'fax' => '',
-      ),
-      'email' => '',
-    ),
+    'default callback' => 'contactinfo_defaults',
+    'group' => 'contactinfo',
+    'localize' => TRUE,
   );
 
   return $variable;
+}
+
+/**
+ * Implements hook_variable_group_info().
+ */
+function contactinfo_variable_group_info() {
+  $groups['contactinfo'] = array(
+    'title' => t('Contact information'),
+    'description' => t('Contact Information'),
+    'access' => 'administer contactinfo',
+    'path' => 'admin/config/system/contactinfo',
+  );
+  return $groups;
 }
