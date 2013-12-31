@@ -1,5 +1,4 @@
 name = Contact Info
 description = Collects site-wide contact information and displays it in an hCard block.
 core = 7.x
-files[] = includes/contactinfo.variable.inc
 configure = admin/config/system/contactinfo

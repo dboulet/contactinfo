@@ -451,7 +451,7 @@ function contactinfo_coord_convert($decimal, $direction) {
  */
 function contactinfo_get_contactinfo() {
   // Get variable defaults.
-  module_load_include('inc', 'contactinfo', 'includes/contactinfo.variable');
+  module_load_include('inc', 'contactinfo', 'contactinfo.variable');
   $variables = contactinfo_variable_info(array());
   $default = $variables['contactinfo']['default'];
 
