@@ -36,7 +36,7 @@ function contactinfo_admin_settings($form, &$form_state) {
   $form['contactinfo']['type'] = array(
     '#type' => 'radios',
     '#title' => t('Contact information type'),
-    '#description' => t('Is this for an individual or a business ?'),
+    '#description' => t('Is this for an individual or a business?'),
     '#options' => array(
       'personal' => t('Personal'),
       'business' => t('Organization/Business'),
