@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * Collects contact information and displays it in an hCard block.

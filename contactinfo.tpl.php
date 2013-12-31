@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * contactinfo.tpl.php
