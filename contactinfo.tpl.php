@@ -101,7 +101,7 @@
     <?php endforeach; ?>
     <?php foreach ($faxes as $fax): ?>
       <?php if ($fax): ?>
-        <div class="tel"><abbr class="type" title="fax"><?php print t('FAX'); ?>:</abbr> <?php print $fax; ?></div>
+        <div class="tel"><abbr class="type" title="fax"><?php print t('Fax'); ?>:</abbr> <?php print $fax; ?></div>
       <?php endif; ?>
     <?php endforeach; ?>
   </div>

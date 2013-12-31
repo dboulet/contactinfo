@@ -161,7 +161,7 @@ function contactinfo_admin_settings($form, &$form_state) {
   );
   $form['contactinfo']['phone']['fax'] = array(
     '#type' => 'textfield',
-    '#title' => t('FAX Number(s)'),
+    '#title' => t('Fax Number(s)'),
     '#default_value' => $default_values['phone']['fax'],
     '#description' => t('Fax numbers, separated by commas.'),
   );
