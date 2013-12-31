@@ -180,7 +180,7 @@ function contactinfo_admin_settings($form, &$form_state) {
   $form['contactinfo']['type'] = array(
     '#type' => 'radios',
     '#title' => t('Contact information type'),
-    '#description' => t('Is this for a business or an individual?'),
+    '#description' => t('Is this for an individual or a business ?'),
     '#options' => array(
       'personal' => t('Personal'),
       'business' => t('Organization/Business'),
@@ -324,7 +324,11 @@ function contactinfo_admin_settings($form, &$form_state) {
     $form['contactinfo']['email']['#description'] .= ' ' . t('Install the <a href="!url" target="_blank">Invisimail</a> module to protect this address from spammers.', array('!url' => 'http://drupal.org/project/invisimail'));
   }
 
-  return system_settings_form($form);
+  $form = system_settings_form($form);
+
+  $form['actions']['submit']['#value'] = t('Save information');
+
+  return $form;
 }
 
 /**
