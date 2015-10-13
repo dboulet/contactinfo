@@ -165,7 +165,7 @@ function contactinfo_block_info() {
   $blocks['hcard'] = array(
     'info' => 'Contact information',
     'weight' => 10,
-    'enabled' => 1,
+    'status' => 1,
     'region' => 'footer',
   );
   return $blocks;
