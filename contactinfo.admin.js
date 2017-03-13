@@ -3,6 +3,7 @@
  * JS for the Contact Information module settings form.
  */
 (function ($, Drupal) {
+  "use strict";
   Drupal.behaviors.contactinfo = {
     attach: function () {
       var contactInfoProperties = {
@@ -16,7 +17,7 @@
           $textField: $('#edit-contactinfo-tagline'),
           siteSettingsVal: Drupal.settings.siteSlogan
         }
-      }
+      };
 
       $.each(contactInfoProperties, function (i, v) {
         // Store user-entered value.
