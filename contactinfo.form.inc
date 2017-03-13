@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Form callback functions for the Contact Info module.

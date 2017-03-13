@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Contact Info variable definitions using the Variable API.

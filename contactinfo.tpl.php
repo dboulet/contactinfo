@@ -1,7 +1,7 @@
 <?php
+
 /**
  * @file
- * contactinfo.tpl.php
  * Default theme implementation to display the hcard in a block.
  *
  * Available variables:

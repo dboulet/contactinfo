@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Token support for the Contact Info module.
@@ -9,8 +10,8 @@
  */
 function contactinfo_token_info() {
   $type = array(
-    'name' =>  t('Contact information'),
-    'description' => t('Tokens for this site\'s contact information.'),
+    'name' => t('Contact information'),
+    'description' => t("Tokens for this site's contact information."),
   );
 
   $tokens['type'] = array(
@@ -19,11 +20,11 @@ function contactinfo_token_info() {
   );
   $tokens['given-name'] = array(
     'name' => t('First Name'),
-    'description' => t('Site contact person\'s first name.'),
+    'description' => t("Site contact person's first name."),
   );
   $tokens['family-name'] = array(
     'name' => t('Last Name'),
-    'description' => t('Site contact person\'s last name.'),
+    'description' => t("Site contact person's last name."),
   );
   $tokens['org'] = array(
     'name' => t('Organization/Business Name'),
@@ -75,7 +76,7 @@ function contactinfo_token_info() {
   );
   $tokens['email'] = array(
     'name' => t('Email'),
-    'description' => t('This site\'s contact email address.'),
+    'description' => t("This site's contact email address."),
   );
 
   return array(
